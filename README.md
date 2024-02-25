@@ -2,6 +2,10 @@
 
 Welcome to the Jetpack Compose Study Project! This repository is aimed at providing resources, examples, and exercises to help you learn and master Jetpack Compose, the modern toolkit for building native Android UI.
 
+<div style="text-align:center">
+    <img src="https://developer.android.com/images/jetpack/compose/landing-preview-animation.gif" alt="Jetpack Compose" width="100" height="200">
+</div>
+
 ## Introduction
 
 Jetpack Compose is a declarative UI toolkit for building native Android apps. It simplifies and accelerates UI development by allowing you to describe your UI using composable functions, making UI development more intuitive and efficient.
