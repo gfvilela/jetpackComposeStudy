@@ -2,9 +2,9 @@
 
 Welcome to the Jetpack Compose Study Project! This repository is aimed at providing resources, examples, and exercises to help you learn and master Jetpack Compose, the modern toolkit for building native Android UI.
 
-<div style="text-align:center">
+<p align="center">
     <img src="https://developer.android.com/images/jetpack/compose/landing-preview-animation.gif" alt="Jetpack Compose" width="100" height="200">
-</div>
+</p>
 
 ## Introduction
 
