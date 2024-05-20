@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">First Project Compose</string>
-    <string name="text1">Texto 1</string>
+    <string name="title">Pontos Amazon</string>
+    <string name="textButton">Buscar pontos</string>
     <string name="text2">Texto 2</string>
     <string name="text3">Texto 3</string>
 </resources>
