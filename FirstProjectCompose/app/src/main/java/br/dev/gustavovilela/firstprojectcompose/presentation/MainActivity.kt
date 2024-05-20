@@ -1,4 +1,4 @@
-package br.dev.gustavovilela.firstprojectcompose
+package br.dev.gustavovilela.firstprojectcompose.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,13 +13,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.AddCircle
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Call
-import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -33,6 +28,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.lifecycleScope
+import br.dev.gustavovilela.firstprojectcompose.R
 import br.dev.gustavovilela.firstprojectcompose.ui.theme.FirstProjectComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -48,13 +45,20 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun FirstScreen() {
+        val currentContext = LocalContext.current
         Scaffold(
             topBar = {
                 CustomAppBar()
             },
             content = { padding ->
                 Surface(modifier = Modifier.padding(padding)) {
-                    Content()
+                    HomeScreen(
+                        title = currentContext.getString(R.string.title),
+                        textButton = currentContext.getString(R.string.textButton),
+                        contentText = "5 ponto por real",
+                        lifecycle = lifecycleScope,
+                        context = LocalContext.current
+                    )
                 }
             }
         )
@@ -73,7 +77,7 @@ class MainActivity : ComponentActivity() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = currentContext.getString(R.string.text1)
+                text = currentContext.getString(R.string.title)
             )
 
             Text(
@@ -100,36 +104,36 @@ class MainActivity : ComponentActivity() {
                         imageVector = Icons.Filled.AccountCircle,
                         contentDescription = "profile picture"
                     )
-                    Text("John Doe")
+                    Text("Pontos Livelo Amazon")
                 }
             },
             navigationIcon = {
-                IconButton({}) {
-                    Icon(
-                        imageVector = Icons.Filled.ArrowBack,
-                        contentDescription = "menu items"
-                    )
-                }
+//                IconButton({}) {
+//                    Icon(
+//                        imageVector = Icons.Filled.ArrowBack,
+//                        contentDescription = "menu items"
+//                    )
+//                }
             },
             actions = {
-                IconButton(onClick = {}) {
-                    Icon(
-                        imageVector = Icons.Filled.AddCircle,
-                        contentDescription = "settingd"
-                    )
-                }
-                IconButton(onClick = {}) {
-                    Icon(
-                        imageVector = Icons.Filled.Call,
-                        contentDescription = "phone call"
-                    )
-                }
-                IconButton(onClick = {}) {
-                    Icon(
-                        imageVector = Icons.Filled.MoreVert,
-                        contentDescription = "more options"
-                    )
-                }
+//                IconButton(onClick = {}) {
+//                    Icon(
+//                        imageVector = Icons.Filled.AddCircle,
+//                        contentDescription = "settingd"
+//                    )
+//                }
+//                IconButton(onClick = {}) {
+//                    Icon(
+//                        imageVector = Icons.Filled.Call,
+//                        contentDescription = "phone call"
+//                    )
+//                }
+//                IconButton(onClick = {}) {
+//                    Icon(
+//                        imageVector = Icons.Filled.MoreVert,
+//                        contentDescription = "more options"
+//                    )
+//                }
             },
             colors = TopAppBarDefaults.smallTopAppBarColors(MaterialTheme.colorScheme.primaryContainer)
         )
