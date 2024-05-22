@@ -1,4 +1,4 @@
-package br.dev.gustavovilela.firstprojectcompose.ui.theme
+package br.dev.gustavovilela.firstprojectcompose.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
