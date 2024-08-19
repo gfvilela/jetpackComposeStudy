@@ -67,6 +67,8 @@ dependencies {
     // Compose integration with ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
 
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+
     implementation("org.jsoup:jsoup:1.14.3")
     implementation("androidx.core:core-ktx:1.13.1")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
