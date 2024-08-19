@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import br.dev.gustavovilela.firstprojectcompose.data.mock.MockCountryRepository
 import br.dev.gustavovilela.firstprojectcompose.domain.usecase.GetCountriesUseCase
 import br.dev.gustavovilela.firstprojectcompose.presentation.component.CustomAppBar
@@ -38,9 +39,10 @@ class MainActivity : ComponentActivity() {
         val viewmodel = CountryListViewModel(getCountriesUseCase = usecase)
 
         val currentContext = LocalContext.current
+        val navController = rememberNavController()
         Scaffold(
             topBar = {
-                CustomAppBar()
+                CustomAppBar(navController)
             },
             content = { padding ->
                 Surface(
@@ -48,7 +50,8 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 //                    DemoScreen()
-                    CountryListScreen(viewModel = viewmodel)
+//                    CountryListScreen(viewModel = viewmodel)
+                    NavGraph(navController = navController, countryListViewModel = viewmodel)
                 }
             }
         )

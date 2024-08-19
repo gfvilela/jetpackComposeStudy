@@ -15,10 +15,16 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import br.dev.gustavovilela.firstprojectcompose.R
+import br.dev.gustavovilela.firstprojectcompose.presentation.NavRoutes
 
 @Composable
-fun DemoScreen(loginViewModel: DemoViewModel = viewModel()) {
+fun DemoScreen(
+    navContrller: NavHostController,
+    loginViewModel: DemoViewModel = viewModel()
+) {
     // Observing the state from ViewModel
     val text by loginViewModel.text
     val password by loginViewModel.password
@@ -72,7 +78,7 @@ fun DemoScreen(loginViewModel: DemoViewModel = viewModel()) {
 
         // Button is a clickable button.
         Button(
-            onClick = { loginViewModel.onLoginClicked() },
+            onClick = { navContrller.navigate(NavRoutes.LIST) },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
@@ -138,5 +144,5 @@ fun DemoScreen(loginViewModel: DemoViewModel = viewModel()) {
 @Composable
 @Preview(showBackground = true)
 fun DemoScreenPreview() {
-    DemoScreen()
+    DemoScreen(rememberNavController())
 }

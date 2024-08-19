@@ -20,12 +20,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import br.dev.gustavovilela.firstprojectcompose.data.mock.MockCountryRepository
 import br.dev.gustavovilela.firstprojectcompose.domain.model.Country
 import br.dev.gustavovilela.firstprojectcompose.domain.usecase.GetCountriesUseCase
 
 @Composable
-fun CountryListScreen(viewModel: CountryListViewModel) {
+fun CountryListScreen(
+    navController: NavHostController,
+    viewModel: CountryListViewModel
+) {
     val countries = viewModel.countries.collectAsState().value
     val isButtonVisisble by viewModel.isButtonVisible
     val selectedCountry by viewModel.selectedCountry
@@ -76,5 +81,5 @@ fun CountryListScreenPreview() {
     val mock = MockCountryRepository()
     val usecase = GetCountriesUseCase(repository = mock)
     val viewmodel = CountryListViewModel(getCountriesUseCase = usecase)
-    CountryListScreen(viewModel = viewmodel)
+    CountryListScreen(rememberNavController(), viewModel = viewmodel)
 }
