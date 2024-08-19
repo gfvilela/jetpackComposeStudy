@@ -12,9 +12,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import br.dev.gustavovilela.firstprojectcompose.data.mock.MockCountryRepository
+import br.dev.gustavovilela.firstprojectcompose.domain.usecase.GetCountriesUseCase
 import br.dev.gustavovilela.firstprojectcompose.presentation.component.CustomAppBar
 import br.dev.gustavovilela.firstprojectcompose.presentation.theme.FirstProjectComposeTheme
 import br.dev.gustavovilela.firstprojectcompose.presentation.ui.demo.DemoScreen
+import br.dev.gustavovilela.firstprojectcompose.presentation.ui.list.CountryListScreen
+import br.dev.gustavovilela.firstprojectcompose.presentation.ui.list.CountryListViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +33,10 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     fun FirstScreen() {
+        val mock = MockCountryRepository()
+        val usecase = GetCountriesUseCase(repository = mock)
+        val viewmodel = CountryListViewModel(getCountriesUseCase = usecase)
+
         val currentContext = LocalContext.current
         Scaffold(
             topBar = {
@@ -39,7 +47,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.padding(padding),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    DemoScreen()
+//                    DemoScreen()
+                    CountryListScreen(viewModel = viewmodel)
                 }
             }
         )
