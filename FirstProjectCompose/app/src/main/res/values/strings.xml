@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">First Project Compose</string>
+    <string name="title">Jetpack Compose</string>
+
+    <string name="screen_title">Jetpack Compose Elements</string>
+    <string name="text_field_label">Text Field</string>
+    <string name="password_field_label">Password Field</string>
+    <string name="button_text">Button</string>
+    <string name="checkbox_text">Checkbox</string>
+    <string name="switch_text">Switch</string>
+    <string name="slider_text">Slider: %1$d</string>
+</resources>
